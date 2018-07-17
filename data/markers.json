@@ -1,0 +1,264 @@
+{
+    "places": [
+        {
+            "id": "0001",
+            "title": "Tunnel Automation",
+            "description": "Some text here",
+            "country": "UAE",
+            "vm": "ITS",
+            "picture": "images/0001.jpg",
+            "lat": 24.481945,
+            "lng": 54.385620
+        },
+        {
+            "id": "0002",
+            "title": "Oil Pipeline Monitoring",
+            "description": "Some text here",
+            "vm": "Oil and Gas",
+            "country": "Russia",
+            "picture": "images/0002.jpg",
+            "lat": 48.719346,
+            "lng": 44.506071
+        },
+        {
+            "id": "0003",
+            "title": "Remote Monitoring and Predictive Maintenance",
+            "description": "Some text here",
+            "country": "Russia",
+            "vm": "IIoT",
+            "picture": "images/0003.jpg",
+            "lat": 59.758538,
+            "lng": 30.532317
+        },
+        {
+            "id": "0004",
+            "title": "Passenger WiFi",
+            "description": "Some text here",
+            "country": "Russia",
+            "vm": "Railway",
+            "picture": "images/0004.jpg",
+            "lat": 55.776419,
+            "lng": 37.579283
+        },
+        {
+            "id": "0005",
+            "title": "Onboard CCTV",
+            "description": "Some text here",
+            "country": "Belarus",
+            "vm": "Railway",
+            "picture": "images/0005.jpg",
+            "lat": 53.902326,
+            "lng": 27.563161
+        },
+        {
+            "id": "0006",
+            "title": "Real-time Dry Pump monitoring",
+            "description": "Some text here",
+            "country": "Korea",
+            "vm": "Factory Automation",
+            "picture": "images/0006.jpg",
+            "lat": 37.25,
+            "lng": 127.484
+        },
+        {
+            "id": "0007",
+            "title": "154kV Power Substation",
+            "description": "Some text here",
+            "vm": "Power",
+            "country": "Korea",
+            "picture": "images/0007.jpg",
+            "lat": 37.51,
+            "lng": 126.788
+        },
+        {
+            "id": "0008",
+            "title": "Railway PIS",
+            "description": "Some text here",
+            "country": "Turkey",
+            "vm": "Railway",
+            "picture": "images/0008.jpg",
+            "lat": 38.424,
+            "lng": 27.14
+        },
+        {
+            "id": "0009",
+            "title": "Railway PIS",
+            "description": "Some text here",
+            "country": "Turkey",
+            "vm": "Railway",
+            "picture": "images/0009.jpg",
+            "lat": 38.08,
+            "lng": 27.738
+        },
+        {
+            "id": "0010",
+            "title": "Semiconductor Factory Power Substation",
+            "description": "Some text here",
+            "country": "Korea",
+            "vm": "Power",
+            "picture": "images/0010.jpg",
+            "lat": 36.648,
+            "lng": 127.429
+        },
+        {
+            "id": "0011",
+            "title": "AGV Wireless Communication System",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Factory Automation",
+            "picture": "images/0011.jpg",
+            "lat": 24.86,
+            "lng": 121.02
+        },
+        {
+            "id": "0012",
+            "title": "Internet access for LPWAN Base Station",
+            "description": "Some text here",
+            "vm": "IIoT",
+            "country": "Taiwan",
+            "picture": "images/0012.jpg",
+            "lat": 25.08,
+            "lng": 121.54
+        },
+        {
+            "id": "0013",
+            "title": "Level Crossing Signal Monitoring",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Railway",
+            "picture": "images/0013.jpg",
+            "lat": 22.89,
+            "lng": 121.14
+        },
+        {
+            "id": "0014",
+            "title": "Bicycle Stress Test Unit",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Others",
+            "picture": "images/0014.jpg",
+            "lat": 24.74,
+            "lng": 120.96
+        },
+        {
+            "id": "0015",
+            "title": "Railway Turnout Monitoring System",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Railway",
+            "picture": "images/0015.jpg",
+            "lat": 22.688113,
+            "lng": 120.308606
+        },
+        {
+            "id": "0016",
+            "title": "Beverage Manufacturing Automatic Storage Wi-Fi System",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Factory Automation",
+            "picture": "images/0016.jpg",
+            "lat": 24.983996,
+            "lng": 121.290772
+        },
+        {
+            "id": "0017",
+            "title": "Automated Port Terminal",
+            "description": "Some text here",
+            "country": "Australia",
+            "vm": "ITS",
+            "picture": "images/0017.jpg",
+            "lat": -33.903714,
+            "lng": 151.180653
+        },
+             {
+            "id": "0018",
+            "title": "Power SCADA Network in a Steel Company",
+            "description": "Some text here",
+            "country": "Vietnam",
+            "vm": "Power",
+            "picture": "images/0018.jpg",
+            "lat": 16.003685,
+            "lng": 107.680975
+        },
+        {
+            "id": "0019",
+            "title": "Railway Signaling Network",
+            "description": "Some text here",
+            "country": "India",
+            "vm": "Railway",
+            "picture": "images/0019.jpg",
+            "lat": 28.616809,
+            "lng": 77.115635
+        },
+        {
+            "id": "0020",
+            "title": "Smart City Infrastructure for IP Surveillance and Wireless AP",
+            "description": "Some text here",
+            "country": "Singapore",
+            "vm": "Others",
+            "picture": "images/0020.jpg",
+            "lat": 1.318207,
+            "lng": 103.830666
+        },
+        {
+            "id": "0021",
+            "title": "Subway Tunnel Monitoring System",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Railway",
+            "picture": "images/0021.jpg",
+            "lat": 22.64,
+            "lng": 120.30
+        },
+        {
+            "id": "0022",
+            "title": "Taiwan Metro Onboard CCTV System",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Railway",
+            "picture": "images/0022.jpg",
+            "lat": 25.04,
+            "lng": 121.51
+        },
+        {
+            "id": "0023",
+            "title": "Customs Radiation Portal Monitors Network",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Others",
+            "picture": "images/0023.jpg",
+            "lat": 22.68,
+            "lng": 120.27
+        },
+             {
+            "id": "0024",
+            "title": "Semiconductor Dry Pumping Network",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Factory Automation",
+            "picture": "images/0024.jpg",
+            "lat": 24.21,
+            "lng": 120.61
+        },
+        {
+            "id": "0025",
+            "title": "Subway Tunnel Monitoring System",
+            "description": "Some text here",
+            "country": "Taiwan",
+            "vm": "Railway",
+            "picture": "images/0025.jpg",
+            "lat": 22.64,
+            "lng": 120.30
+        },
+        {
+            "id": "0026",
+            "title": "Railway Signaling System",
+            "description": "Some text here",
+            "country": "Russia",
+            "vm": "Railway",
+            "picture": "images/0026.jpg",
+            "lat": 55.72837,
+            "lng": 37.639508
+        }
+    ]
+}

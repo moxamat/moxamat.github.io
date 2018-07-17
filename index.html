@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MAT Project Map</title>
+
+<style type="text/css" media="screen">
+	img { border: 0; }
+	#logo {
+	    width: 100%;
+	    background-color: #008787;
+	    float: left;
+	}
+	#logo img{
+	    margin: 10px 15px;
+	}
+	#map{
+		width: 100%;
+		height: 450px; 
+	}
+	#content {
+		position: relative;
+		top: 0px;
+		left: 0px;
+		margin: 0px;
+		font-family: Arial, Courier;
+		font-size: 80%;
+	}
+	#markers{
+        width: 100%;
+        border-spacing: 0px;
+    }
+    #markers a {
+        color: #008787;
+    }
+    #markers th{
+        background-color: #008787;
+        padding: 5px;
+        color: #ffffff; 
+    }
+    #markers td{
+        background-color: #f5f5f5;
+        padding: 5px;
+        border: 0.5px solid #dddddd;
+        border-collapse: collapse;
+	}
+	#markers input{
+	    width: 80%;
+	    margin: 0px;
+	    padding: 0px;
+	}
+</style>
+</head>
+
+<body>
+<div id="container" style="position: fixed; top: 0; left: 0;  width: 100%;  height: 100%; overflow: auto;">
+	<div id="logo"><img src=images/logo.png></div>
+	<div id="map"></div>
+	<div id="content">	
+	<table id="markers">
+	    <tr><th>ID</th><th>Description</th><th>Country</th><th>Vertical Market</th></tr>
+	    <tr class='table-filters'><td><input type="text"/></td><td><input type="text"/></td><td><input type="text"/></td><td><input type="text"/></td></tr>
+	</table>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="../scripts/markerclusterer/markerclusterer.js"></script>
+<script type="text/javascript">
+	var map;
+	var arrMarkers = [];
+	var arrInfoWindows = [];
+
+	function mapInit(){
+		var centerCoord = new google.maps.LatLng(56.316667, 44);
+		var mapOptions = {
+			minZoom: 2,
+			maxZoom: 12,
+			zoom: 3,
+			gestureHandling: 'cooperative',
+			center: centerCoord,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var iconImage = 'icons/others.png';
+		map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		//Map area
+		var latlngbounds = new google.maps.LatLngBounds();
+		//Loading JSON data from markers.json
+		$.getJSON("data/markers.json", {}, function(data){
+			$.each(data.places, function(i, item){
+				$("#markers").append('<tr class=\'table-data\'><td>' + item.id + '</td><td><a href="#" rel="' + i + '">' + item.title + '</a></td><td>'+ item.country + '</td><td>'+ item.vm + '</td></tr>');
+            	//Choosing marker icon based on vertical market
+            	switch (item.vm) {
+                    case 'ITS':
+                        iconImage = 'icons/its.png'
+                        break;
+                    case 'Factory Automation':
+                        iconImage = 'icons/fa.png'
+                        break;
+                    case 'Power':
+                        iconImage = 'icons/power.png'
+                        break;
+                    case 'IIoT':
+                        iconImage = 'icons/iot.png'
+                        break;
+                    case 'Marine':
+                        iconImage = 'icons/marine.png'
+                        break;
+                    case 'Oil and Gas':
+                        iconImage = 'icons/oilgas.png'
+                        break;
+                    case 'Railway':
+                        iconImage = 'icons/railway.png'
+                        break;
+                    case 'Water':
+                        iconImage = 'icons/water.png'
+                        break;
+                    default:
+                        iconImage = 'icons/others.png'
+                }
+                // Drawing markers
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(item.lat, item.lng),
+					map: map,
+					title: item.title,
+					icon: iconImage
+				});
+				//Adding markers coordinates
+				latlngbounds.extend(new google.maps.LatLng(item.lat, item.lng));
+				arrMarkers[i] = marker;
+				//Displaying infowindow with picture
+				var infowindow = new google.maps.InfoWindow({content: "<a href=\"" + item.picture + "\"><img src = \""+ item.picture +"\" width=\"320\" height=\"240\"></a>"});
+				arrInfoWindows[i] = infowindow;
+				google.maps.event.addListener(marker, 'click', function() {infowindow.open(map, marker);});
+			});
+			//Centering the map, so all markers are visible
+			map.setCenter( latlngbounds.getCenter(), map.fitBounds(latlngbounds));
+			// Add a marker clusterer to manage the markers.
+            //var markerCluster = new MarkerClusterer(map, arrMarkers, {imagePath: '../icons/clusterer/m'});
+		});
+	}
+	$(function(){
+		//Map Initialization
+		mapInit();
+
+		// Tracking click on link event
+		$("#markers").on("click", 'a', function(){
+			var i = $(this).attr("rel");
+			// Closing all open info windows
+			for(x=0; x < arrInfoWindows.length; x++){ arrInfoWindows[x].close(); }
+			arrInfoWindows[i].open(map, arrMarkers[i]);
+		});
+	});
+</script>
+
+<script>
+//Table filter script
+$('.table-filters input').on('input', function () {
+    filterTable($(this).parents('table'));
+});
+
+function filterTable($table) {
+    var $filters = $table.find('.table-filters td');
+    var $rows = $table.find('.table-data');
+    $rows.each(function (rowIndex) {
+        var valid = true;
+        $(this).find('td').each(function (colIndex) {
+            if ($filters.eq(colIndex).find('input').val()) {
+                if ($(this).html().toLowerCase().indexOf(
+                $filters.eq(colIndex).find('input').val().toLowerCase()) == -1) {
+                    valid = valid && false;
+                }
+            }
+        });
+        if (valid === true) {
+            $(this).css('display', '');
+        } else {
+            $(this).css('display', 'none');
+        }
+    });
+}
+</script>
+
+</body>
+</html>
